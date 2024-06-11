@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+  border: 2px solid rgb(232, 238, 67);
+  width: 150px;
+  list-style: none;
+
+  .item {
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+}

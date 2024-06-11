@@ -1,3 +1,4 @@
+import s from "./Options.module.css";
 export const Options = ({
   review,
   totalFeedback,
@@ -5,16 +6,23 @@ export const Options = ({
   updateFeedback,
 }) => {
   return (
-    <ul>
+    <ul className={s.list}>
       {review.map((option, index) => (
-        <li key={option}>
-          <button onClick={() => updateFeedback(option, index + 1)}>
+        <li className={s.item} key={option}>
+          <button
+            className={s.button}
+            onClick={() => updateFeedback(option, index + 1)}
+          >
             {option}
           </button>
         </li>
       ))}
-      <li>
-        {totalFeedback > 0 && <button onClick={handleReset}>Reset</button>}
+      <li className={s.item}>
+        {totalFeedback > 0 && (
+          <button className={s.button} onClick={handleReset}>
+            Reset
+          </button>
+        )}
       </li>
     </ul>
   );
