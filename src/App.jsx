@@ -12,18 +12,26 @@ import Notification from "./components/Notification/Notification";
 // };
 
 function App() {
-  const [review, setReview] = useState({
+  const object = {
     good: 0,
     neutral: 0,
     bad: 0,
+  };
+
+  const [review, setReview] = useState(() => {
+    const savedReview = window.localStorage.getItem("rev");
+    if (savedReview !== null) {
+      return JSON.parse(savedReview);
+    }
+    return object;
   });
 
-  useEffect(() => {
-    const savedReview = JSON.parse(window.localStorage.getItem("rev"));
-    if (savedReview) {
-      setReview(savedReview);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const savedReview = JSON.parse(window.localStorage.getItem("rev"));
+  //   if (savedReview) {
+  //     setReview(savedReview);
+  //   }
+  // }, []);
 
   useEffect(() => {
     window.localStorage.setItem("rev", JSON.stringify(review));
